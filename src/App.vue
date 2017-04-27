@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <!-- <keep-alive>
-      <router-view v-if="isKeep"></router-view>
-    </keep-alive> -->
     <router-view></router-view>
   </div>
 </template>

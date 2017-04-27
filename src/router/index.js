@@ -56,7 +56,6 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   Vue.prototype.$loader.close()
-  console.log(to)
   next()
 })
 export default router

@@ -11,7 +11,7 @@ import '@/assets/vui'
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 Vue.prototype.$baseUrl = process.env.NODE_ENV === 'development' ? 'http://192.168.16.83:3001' : ''
-console.log(process.env.NODE_ENV)
+
 FastClick.attach(document.body)
 
 let ohtml = document.documentElement

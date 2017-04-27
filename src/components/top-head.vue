@@ -2,14 +2,14 @@
   <header class="g-header trans" :class="{'g-header--fade': isHide}">
     <h2>{{title}}</h2>
     <div class="nav-top">
-      <span class="nav-top__btn" @click="navShow = true" v-show="!back"></span>
+      <span class="nav-top__btn" @click="open" v-show="!back"></span>
       <a href="https://webpay.yupaopao.cn/wappay/#/pay"  v-show="!back" class="diamond-btn">购买钻石</a>
       <a href="/" v-show="!title && !back"><h1 class="nav-top__logo">鱼泡泡</h1></a>
       <span class="nav-top__back" @click="$router.back()" v-show="back"></span>
     </div>
     <nav class="nav-list trans" :class="{'nav-list--cur': navShow}">
       <div class="nav-list__close tar">
-        <span class="close-btn" @click="navShow = false"></span>
+        <span class="close-btn" @click="close"></span>
       </div>
       <ul>
         <li><router-link to="/">首页</router-link></li>
@@ -29,6 +29,16 @@ export default {
   data () {
     return {
       navShow: false
+    }
+  },
+  mounted () {
+  },
+  methods: {
+    open () {
+      this.navShow = true
+    },
+    close () {
+      this.navShow = false
     }
   }
 }
