@@ -1,0 +1,29 @@
+
+鱼泡泡官网服务器的FTP登录信息：
+IP：121.40.182.1
+用户名：gaoxin
+密码：3-B<Uu`0gX0h
+你猜：LvhK204Reu45SiTk
+
+Jenkins的账号信息如下：
+账号：gaoxin
+密码：m.?E70gL$Hf3
+Jenkins登录链接：
+http://jenkins.yupaopao.cn:8080/ 
+
+后台账户信息：
+账号：gaoxin
+密码：9j52MaQ5TEfF
+
+阿里云的子账号登录地址：
+子账号:http://signin.aliyun.com/1872928906167841/login.htm
+企业别名：1872928906167841   
+账号：gaoxin
+密码：WYWKyppgx2016
+
+ypp mongodb user
+user: dbadmin
+pwd: mynameisyppdba
+user: app
+pwd: mynameisyppuser
+pwd: mynameisxinge
