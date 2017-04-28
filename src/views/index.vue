@@ -53,8 +53,8 @@
               <img src="../assets/images/client.png" alt="">
             </div>
             <div class="download-bar">
-              <a href="/download"><img src="../assets/images/m-btn-ios.png" alt=""></a>
-              <a href="/download"><img src="../assets/images/m-btn-android.png" alt=""></a>
+              <a href="/mdownload"><img src="../assets/images/m-btn-ios.png" alt=""></a>
+              <a href="/mdownload"><img src="../assets/images/m-btn-android.png" alt=""></a>
             </div>
             <div class="copyright">
               <p>www.yupaopao.cn 2014-2017©All Rights Reserved.</p>
