@@ -5,8 +5,11 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import FastClick from 'fastclick'
+import infiniteScroll from 'vue-infinite-scroll'
 import '@/assets/css/styles.scss'
 import '@/assets/vui'
+
+Vue.use(infiniteScroll)
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios

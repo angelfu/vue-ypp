@@ -1,9 +1,9 @@
 <template>
   <article class="page" :class="{'show': isReady}">
-    <top-head :isHide="false" :title="title"></top-head>
+    <top-head :isHide="false" :title="title" ref="head"></top-head>
     <main class="g-main news">
       <div class="m-news-blk">
-        <ul class="news-list">
+        <ul class="news-list" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
           <li class="news-list__item" v-for="item in newsList">
             <router-link :to="'/news-detail/' + item.id">
               <h5>{{item.title}}</h5>
@@ -42,27 +42,47 @@ export default {
     return {
       title: '动态',
       isReady: true,
-      newsList: []
+      newsList: [],
+      busy: false,
+      page: 1
     }
   },
-  mounted () {
-    let self = this
-    self.$loader.open()
-    self.$axios.post(self.$baseUrl + '/getNewsList', {page: 1})
-    .then(res => {
-      if (res.data.code === 200) {
-        self.newsList = res.data.result
-      } else {
-        self.$alert({text: ['网络错误']})
-      }
-      self.$loader.close()
-    })
-    .catch(() => {
-      self.$alert({text: ['网络错误']})
-      self.$loader.close()
+  beforeRouteEnter (to, from, next) {
+    next((vm) => {
+      vm.$refs.head.close()
     })
   },
+  mounted () {
+  },
   computed: {
+  },
+  methods: {
+    loadMore () {
+      let self = this
+
+      if (!self.busy) {
+        self.busy = true
+        self.$loader.open()
+
+        self.$axios.post(self.$baseUrl + '/getNewsList', {page: self.page})
+        .then(res => {
+          if (res.data.code === 200) {
+            if (res.data.result.length) {
+              self.newsList = self.newsList.concat(res.data.result)
+              self.page++
+              self.busy = false
+            }
+          } else {
+            self.$alert({text: ['网络错误']})
+          }
+          self.$loader.close()
+        })
+        .catch(() => {
+          self.$alert({text: ['网络错误']})
+          self.$loader.close()
+        })
+      }
+    }
   }
 }
 </script>

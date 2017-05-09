@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <keep-alive>
+      <router-view v-if="isKeep"></router-view>
+    </keep-alive>
+    <router-view v-if="!isKeep"></router-view>
   </div>
 </template>
 
@@ -9,7 +12,7 @@ export default {
   name: 'app',
   data () {
     return {
-      keepPage: ['join', 'news']
+      keepPage: ['join', 'news', 'help']
     }
   },
   computed: {

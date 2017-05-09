@@ -1,6 +1,6 @@
 <template>
   <article class="page" :class="{'show': isReady}">
-    <top-head :isHide="false" :title="title"></top-head>
+    <top-head :isHide="false" :title="title" ref="head"></top-head>
     <main class="g-main help">
       <div class="tabs">
         <div class="tabs__head" :class="'tabs__head--' + tabData.length">
@@ -613,6 +613,11 @@ export default {
         }
       ]
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    next((vm) => {
+      vm.$refs.head.close()
+    })
   },
   mounted () {
   },
