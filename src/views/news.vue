@@ -8,7 +8,7 @@
             <router-link :to="'/news-detail/' + item.id">
               <h5>{{item.title}}</h5>
               <div class="content">
-                <img :src="item.back_img" alt="">
+                <img :src="url + item.back_img" alt="">
                 <div class="text">
                   <p>{{item.info.replace(/[&|nbsp;]/ig, '')}}</p>
                   <div class="date">
@@ -44,7 +44,8 @@ export default {
       isReady: true,
       newsList: [],
       busy: false,
-      page: 1
+      page: 1,
+      url: ''
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -64,11 +65,12 @@ export default {
         self.busy = true
         self.$loader.open()
 
-        self.$axios.post(self.$baseUrl + '/getNewsList', {page: self.page})
+        self.$axios.post(self.$baseUrl + '/getNews', {page: self.page})
         .then(res => {
-          if (res.data.code === 200) {
-            if (res.data.result.length) {
-              self.newsList = self.newsList.concat(res.data.result)
+          if (res.data.status === 1) {
+            if (res.data.data.list.length) {
+              self.url = res.data.data.url
+              self.newsList = self.newsList.concat(res.data.data.list)
               self.page++
               self.busy = false
             }

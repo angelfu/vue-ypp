@@ -12,7 +12,7 @@ export default {
   name: 'app',
   data () {
     return {
-      keepPage: ['join', 'news', 'help']
+      keepPage: ['join', 'help']
     }
   },
   computed: {

@@ -37,10 +37,10 @@ export default {
   mounted () {
     let self = this
     self.$loader.open()
-    self.$axios.post(self.$baseUrl + '/getNewsList', {id: self.$route.params.id})
+    self.$axios.post(self.$baseUrl + '/getNewsDetail', {id: self.$route.params.id})
     .then(res => {
-      if (res.data.code === 200) {
-        self.newsDetail = res.data.result[0]
+      if (res.data.status === 1) {
+        self.newsDetail = res.data.data[0]
       } else {
         self.$alert({text: ['网络错误']})
       }
