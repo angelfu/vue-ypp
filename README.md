@@ -2,7 +2,6 @@
 
   一个基于vue-cli的简单的官网
 
-> ypp mobile
 
 ## Build Setup
 
