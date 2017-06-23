@@ -1,4 +1,6 @@
-# vue-ypp
+# 鱼泡泡移动端官网
+
+  一个基于vue-cli的简单的官网
 
 > ypp mobile
 
